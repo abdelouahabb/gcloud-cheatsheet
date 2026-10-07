@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Periodic Table of Google Cloud — Interactive Developer Cheat Sheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Sticky Navigation Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-badge">
+          <span class="atomic-num">118</span>
+          <span class="symbol">Gc</span>
+        </div>
+        <div class="brand-title">
+          <h1>
+            Periodic Table of Google Cloud
+            <span class="version-pill">4-Word Cheat Sheet Edition</span>
+          </h1>
+          <p>118 Cloud Elements · 10 Chemical Families · Interactive Architecture Compounds & CLI Reference</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Search product, symbol (Bq, Cr), or 4-word clue..." autocomplete="off" />
+          <span class="search-shortcut">/</span>
+        </div>
+
+        <div class="view-switcher" role="tablist">
+          <button class="view-btn active" data-view="periodic">⚛️ Periodic Table</button>
+          <button class="view-btn" data-view="poster">📜 4-Word Poster</button>
+          <button class="view-btn" data-view="lab">🧪 Cloud Lab</button>
+          <button class="view-btn" data-view="quiz">🎓 Quiz</button>
+        </div>
+
+        <button class="icon-btn" id="themeToggleBtn" title="Switch between Dark Lab and Light Poster theme">☀️ Poster Light</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Chemical Families & States of Matter Filter Ribbon -->
+  <section class="controls-ribbon">
+    <div class="category-legend" id="categoryLegend"></div>
+
+    <div class="sub-filters">
+      <div class="state-pills" id="statePills"></div>
+
+      <div style="display:flex; align-items:center; gap:0.65rem; flex-wrap:wrap">
+        <button class="state-pill active" id="bondToggleBtn" title="Highlight commonly integrated products when hovering an element">🔗 Bonds: ON</button>
+        <span>Tip: Hover any element to inspect · Click for <code>gcloud</code> &amp; Terraform · Press <kbd style="padding:1px 5px;border-radius:4px;border:1px solid var(--border-subtle)">Esc</kbd> to reset</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Stage -->
+  <main class="main-stage">
+    <!-- VIEW 1: PERIODIC TABLE -->
+    <div id="periodicViewSection">
+      <div class="periodic-scroll-wrapper">
+        <div class="periodic-grid" id="periodicGrid"></div>
+      </div>
+
+      <!-- Reference Architectures ("Cloud Compounds / Molecules") -->
+      <section class="compounds-section">
+        <div class="compounds-header">
+          <h3>⚗️ Reference Cloud Compounds (Click a Molecule to Highlight its Elements &amp; Data Flow)</h3>
+          <span style="font-size:0.74rem; color:var(--text-secondary)">Pre-synthesized Google Cloud Reference Architectures</span>
+        </div>
+        <div class="compounds-grid" id="compoundsGrid"></div>
+        <div class="compound-flow-banner" id="compoundFlowBanner"></div>
+      </section>
+    </div>
+
+    <!-- VIEW 2: CLASSIC 4-WORD CHEAT SHEET POSTER -->
+    <div id="posterViewSection" class="hidden">
+      <div class="cheatsheet-grid" id="posterGrid"></div>
+    </div>
+
+    <!-- VIEW 3: CLOUD LAB SYNTHESIZER -->
+    <div id="labViewSection" class="hidden">
+      <div class="lab-workbench" id="labWorkbenchContent"></div>
+    </div>
+
+    <!-- VIEW 4: QUIZ CHALLENGE -->
+    <div id="quizViewSection" class="hidden">
+      <div id="quizViewContent"></div>
+    </div>
+  </main>
+
+  <!-- Element Deep-Dive Modal -->
+  <div class="modal-backdrop" id="elementModalBackdrop">
+    <div class="element-modal" id="elementModalContent"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
